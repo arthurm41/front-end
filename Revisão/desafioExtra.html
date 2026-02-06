@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Contagem de Compromissos Válidos</title>
+</head>
+<body>
+
+    <h2>Varredura de Compromissos com Contador</h2>
+    <p>Abra o console do navegador (F12) para ver o relatório.</p>
+
+    <script>
+        const agendaHorarios = [8, 12, 25, 15, -2, 20];
+        let contagemValidos = 0;            
+        for (const horario of agendaHorarios) {
+            if (horario >= 0 && horario <= 23) {
+                console.log(`Compromisso agendado para as ${horario}h`);
+                contagemValidos++;
+            } else {
+                console.log(`Atenção: O horário ${horario}h é inválido!`);
+            }
+        }
+        console.log(`Total de compromissos válidos: ${contagemValidos}`);
+    </script>
+
+</body>
+</html>

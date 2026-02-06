@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Verificador de Turno e Prioridade</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        input, button {
+            margin: 5px 0;
+            padding: 5px;
+        }
+        #resultado {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Verificador de Turno e Prioridade</h2>
+
+    <label>Hora (0 a 23):</label><br>
+    <input type="number" id="hora"><br>
+
+    <label>Prioridade (1 a 10):</label><br>
+    <input type="number" id="prioridade"><br>
+
+    <button onclick="verificarTarefa()">Verificar</button>
+
+    <div id="resultado"></div>
+
+    <script>
+        function verificarTarefa() {
+            const hora = Number(document.getElementById("hora").value);
+            const prioridade = Number(document.getElementById("prioridade").value);
+            let turno = "";
+            let resultado = "";1
+            if (hora < 0 || hora > 23) {
+                resultado = "Horário Inválido";
+                document.getElementById("resultado").innerText = resultado;
+                return;
+            }
+            if (prioridade < 1 || prioridade > 10) {
+                resultado = "Nível de Prioridade Inválida";
+                document.getElementById("resultado").innerText = resultado;
+                return;
+            }
+            if (hora >= 0 && hora <= 11) {
+                turno = "Manhã";
+            } else if (hora >= 12 && hora <= 17) {
+                turno = "Tarde";
+            } else {
+                turno = "Noite";
+            }
+            if ((turno === "Manhã" || turno === "Tarde") && prioridade > 8) {
+                resultado = "TAREFA CRÍTICA / URGENTE";
+            } 
+            else if ((turno === "Manhã" || turno === "Tarde") && prioridade >= 7 && prioridade < 9) {
+                resultado = "TAREFA IMPORTANTE";
+            } 
+            else if (turno === "Noite") {
+                resultado = "TAREFA NÃO IMPORTANTE";
+            } 
+            else {
+                resultado = "TAREFA COMUM";
+            }
+
+            document.getElementById("resultado").innerText = 
+                `Turno: ${turno} — ${resultado}`;
+        }
+    </script>
+
+</body>
+</html>

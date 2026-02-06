@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Varredura de Compromissos</title>
+</head>
+<body>
+
+    <h2>Varredura de Compromissos</h2>
+    <p>Abra o console do navegador (F12) para ver o relatório.</p>
+
+    <script>
+        const agendaHorarios = [8, 12, 25, 15, -2, 20];
+        for (let i = 0; i < agendaHorarios.length; i++) {
+            const horario = agendaHorarios[i];
+            if (horario >= 0 && horario <= 23) {
+                console.log(`Compromisso agendado para as ${horario}h`);
+            } else {
+                console.log(`Atenção: O horário ${horario}h é inválido!`);
+            }
+        }       
+    </script>
+
+</body>
+</html>

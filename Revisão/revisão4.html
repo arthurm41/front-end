@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Contador de Dias para Evento</title>
+</head>
+<body>
+
+    <h2>Contador de Dias para o Evento</h2>
+    <p>Abra o console do navegador (F12) para ver o resultado.</p>
+
+    <script>
+        const dataHoje = new Date();
+        const dataEvento = new Date(2026, 2, 30); 
+        const diferencaMs = dataEvento - dataHoje;
+        const msPorDia = 24 * 60 * 60 * 1000;
+        const diferencaDias = Math.ceil(diferencaMs / msPorDia);
+        console.log(`Faltam ${diferencaDias} dias para o seu compromisso!`);
+    </script>
+
+</body>
+</html>

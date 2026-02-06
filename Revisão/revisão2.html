@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora de Gastos Mensais</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        input, button {
+            margin: 5px 0;
+            padding: 5px;
+        }
+        #resultado {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Calculadora de Gastos Mensais</h2>
+
+    <label>Salário:</label><br>
+    <input type="number" id="salario"><br>
+
+    <label>Aluguel:</label><br>
+    <input type="number" id="aluguel"><br>
+
+    <label>Alimentação:</label><br>
+    <input type="number" id="alimentacao"><br>
+
+    <label>Lazer:</label><br>
+    <input type="number" id="lazer"><br>
+
+    <button onclick="calcularGastos()">Calcular</button>
+
+    <div id="resultado"></div>
+
+    <script>
+        function calcularGastos() {
+            const salario = Number(document.getElementById("salario").value);
+            const aluguel = Number(document.getElementById("aluguel").value);
+            const alimentacao = Number(document.getElementById("alimentacao").value);
+            const lazer = Number(document.getElementById("lazer").value);
+
+            const totalDespesas = aluguel + alimentacao + lazer;
+            const saldo = salario - totalDespesas;
+
+            let mensagem = "";
+
+            if (saldo > 0) {
+                mensagem = "Saldo Positivo";
+            } else if (saldo === 0) {
+                mensagem = "No Limite";
+            } else {
+                mensagem = "Saldo Negativo";
+            }
+
+            document.getElementById("resultado").innerHTML = `
+                Total de despesas: R$ ${totalDespesas.toFixed(2)} <br>
+                Saldo restante: R$ ${saldo.toFixed(2)} <br>
+                Situação: ${mensagem}
+            `;
+        }
+    </script>
+
+</body>
+</html>

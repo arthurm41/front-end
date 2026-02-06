@@ -1,0 +1,54 @@
+    <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Formatador de Nomes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        input, button {
+            padding: 5px;
+            margin-top: 5px;
+        }
+        #resultado {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Formatador de Nomes para a Agenda</h2>
+
+    <label>Digite o nome do contato:</label><br>
+    <input type="text" id="nome"><br>
+
+    <button onclick="formatarNome()">Formatar</button>
+
+    <div id="resultado"></div>
+
+    <script>
+        function limparNomeContato(nome) {
+            let nomeLimpo = nome.trim();
+            nomeLimpo = nomeLimpo.toUpperCase();
+
+            return nomeLimpo;
+        }
+
+        function formatarNome() {
+            const nomeDigitado = document.getElementById("nome").value;
+            const nomeFormatado = limparNomeContato(nomeDigitado);
+            const palavras = nomeFormatado.split(" ").filter(p => p !== "");
+            const quantidadePalavras = palavras.length;
+
+            document.getElementById("resultado").innerHTML = `
+                Nome formatado: ${nomeFormatado} <br>
+                Quantidade de palavras: ${quantidadePalavras}
+            `;
+        }
+    </script>
+
+</body>
+</html>
