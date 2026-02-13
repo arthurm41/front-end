@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercícios JS Dinâmicos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+ <!-- exercicio 1 -->
+    <section class="secao">
+        <h1>Conversor de Celsius para Fahrenheit</h1>
+
+        <input type="number" id="celsius" placeholder="Digite a temperatura em °C">
+        <button onclick="converter()">Converter</button>
+
+        <p id="resultado"></p>
+    </section>
+
+<!-- exercicio 2 -->
+    <section class="secao cartao-area">
+
+        <div class="formulario">
+            <h2>Gerador de Cartão de Visitas</h2>
+
+            <input type="text" id="nome" placeholder="Nome">
+            <input type="text" id="cargo" placeholder="Cargo">
+
+            <select id="cor">
+                <option value="#3498db">Azul</option>
+                <option value="#e74c3c">Vermelho</option>
+                <option value="#2ecc71">Verde</option>
+                <option value="#9b59b6">Roxo</option>
+                <option value="#f39c12">Laranja</option>
+            </select>
+        </div>
+
+        <div class="cartao" id="cartao">
+            <h3 id="previewNome">Seu Nome</h3>
+            <p id="previewCargo">Seu Cargo</p>
+        </div>
+
+    </section>
+
+    <script src="Exercicios1e2.js"></script>
+</body>
+</html>
