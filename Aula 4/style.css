@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f9f9f9;
+}
+
+/* Barra superior */
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo h2 {
+    color: red;
+}
+
+.search-box {
+    display: flex;
+    width: 40%;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-right: none;
+}
+
+.search-box button {
+    padding: 8px 15px;
+    border: 1px solid #ccc;
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+.user-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.profile {
+    background-color: red;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 50%;
+}
+
+/* Menu lateral */
+.sidebar {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    background-color: white;
+    border-right: 1px solid #ddd;
+    padding-top: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    padding: 12px 20px;
+    cursor: pointer;
+}
+
+.sidebar li:hover {
+    background-color: #f2f2f2;
+}
+
+/* Área de vídeos */
+.videos {
+    margin-top: 80px;
+    margin-left: 220px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.video-card {
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.video-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.video-card h4 {
+    margin: 10px 0 5px;
+}
+
+.video-card p {
+    font-size: 14px;
+    color: gray;
+}
+
+.video-card:hover {
+    transform: scale(1.03);
+}
