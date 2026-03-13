@@ -6,42 +6,261 @@
 
 <title>Instagram Clone</title>
 
-<link rel="stylesheet" href="style.css">
-
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+background:#000;
+color:white;
+}
+
+/* NAVBAR */
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+border-bottom:1px solid #222;
+}
+
+.search input{
+padding:7px;
+border-radius:8px;
+border:none;
+background:#262626;
+color:white;
+}
+
+/* LAYOUT */
+
+.container{
+display:flex;
+justify-content:center;
+gap:40px;
+margin-top:20px;
+}
+
+.feed{
+width:470px;
+}
+
+/* STORIES */
+
+.stories{
+display:flex;
+gap:15px;
+background:#111;
+padding:15px;
+border-radius:10px;
+margin-bottom:20px;
+overflow-x:auto;
+}
+
+.story{
+text-align:center;
+font-size:12px;
+}
+
+.story img{
+width:60px;
+height:60px;
+border-radius:50%;
+border:3px solid #ff0066;
+padding:2px;
+}
+
+/* POST */
+
+.post{
+background:#111;
+border:1px solid #222;
+border-radius:8px;
+margin-bottom:25px;
+overflow:hidden;
+}
+
+.post-header{
+display:flex;
+align-items:center;
+padding:10px;
+}
+
+.post-header img{
+width:35px;
+height:35px;
+border-radius:50%;
+margin-right:10px;
+}
+
+.post-img{
+width:100%;
+}
+
+/* CARROSSEL */
+
+.carousel{
+position:relative;
+overflow:hidden;
+}
+
+.carousel-track{
+display:flex;
+transition:transform 0.5s ease;
+}
+
+.carousel-track img{
+width:100%;
+flex-shrink:0;
+}
+
+.carousel button{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+background:rgba(0,0,0,0.6);
+border:none;
+color:white;
+padding:8px 10px;
+cursor:pointer;
+}
+
+.prev{ left:10px }
+.next{ right:10px }
+
+/* YOUTUBE */
+
+.youtube-video iframe{
+width:100%;
+height:300px;
+border:none;
+}
+
+/* ICONES */
+
+.post-icons{
+padding:10px;
+}
+
+.post-icons i{
+margin-right:10px;
+font-size:20px;
+cursor:pointer;
+}
+
+.caption{
+padding:0 10px 15px;
+font-size:14px;
+}
+
+.verified{
+color:#3ea6ff;
+font-size:13px;
+margin-left:5px;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+width:300px;
+}
+
+.profile{
+display:flex;
+align-items:center;
+gap:10px;
+margin-bottom:20px;
+}
+
+.profile img{
+width:45px;
+height:45px;
+border-radius:50%;
+}
+
+.suggestion{
+display:flex;
+justify-content:space-between;
+margin-bottom:15px;
+}
+
+.follow{
+color:#3ea6ff;
+cursor:pointer;
+}
+
+</style>
 </head>
+
 <body>
 
 <header class="navbar">
 
-<div class="logo">
-<h2>Instagram</h2>
-</div>
+<h2 style="font-family:cursive;">Instagram</h2>
 
 <div class="search">
 <input type="text" placeholder="Pesquisar">
 </div>
 
-<div class="icons">
-<i class="fa-regular fa-heart"></i>
-<i class="fa-regular fa-paper-plane"></i>
-<i class="fa-regular fa-user"></i>
-</div>
-
 </header>
 
-<main class="feed">
+<div class="container">
+
+<!-- FEED -->
+
+<div class="feed">
+
+<!-- STORIES -->
+
+<div class="stories">
+
+<div class="story">
+<img src="lebron.jpg">
+<p>lebron</p>
+</div>
+
+<div class="story">
+<img src="ShaiG.jpg">
+<p>shai</p>
+</div>
+
+<div class="story">
+<img src="ufc.jpg">
+<p>ufc</p>
+</div>
+
+</div>
+
+<!-- POST 1 CARROSSEL -->
 
 <div class="post">
 
 <div class="post-header">
-<img src="pexels-marcia-otto-1382690-36391549.jpg">
-<span>RosY_</span>
+<img src="lebron.jpg">
+<span>lebron <i class="fa-solid fa-circle-check verified"></i></span>
 </div>
 
-<img class="post-img" src="alexander-lunyov-wZ7DuBV8JlQ-unsplash.jpg">
+<div class="carousel">
+
+<div class="carousel-track">
+<img src="Lebroon.png">
+<img src="Lebrooon.png">
+<img src="Lebroooooooon.png">
+</div>
+
+<button class="prev"><i class="fa-solid fa-chevron-left"></i></button>
+<button class="next"><i class="fa-solid fa-chevron-right"></i></button>
+
+</div>
 
 <div class="post-icons">
 <i class="fa-regular fa-heart"></i>
@@ -50,21 +269,23 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 </div>
 
 <p class="caption">
-<b>RosY_</b> Curtindo o dia ☀️
+<b>Luka Doncic</b> LeBron James is the GOAT 🐐
 </p>
 
 </div>
 
+<!-- POST 2 VIDEO -->
+
 <div class="post">
 
 <div class="post-header">
-<img src="alexey-demidov-0mHFjEF-nck-unsplash.jpg">
-<span>M4rc._</span>
+<img src="ufc.jpg">
+<span>UFC <i class="fa-solid fa-circle-check verified"></i></span>
 </div>
 
-<video class="post-video" loop muted controls>
-<source src="14982332_3840_2160_30fps.mp4" type="video/mp4">
-</video>
+<div class="youtube-video">
+<iframe src="https://www.youtube.com/embed/VhJlkRKFT9Y"></iframe>
+</div>
 
 <div class="post-icons">
 <i class="fa-regular fa-heart"></i>
@@ -73,19 +294,21 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 </div>
 
 <p class="caption">
-<b>M4rc._</b> Olha esse vídeo incrível 🎥
+<b>UFC</b> Israel Adesanya vs Alex Pereira
 </p>
 
 </div>
 
+<!-- POST 3 IMAGEM -->
+
 <div class="post">
 
 <div class="post-header">
-<img src="pexels-moph-31861864.jpg">
-<span>Car0L</span>
+<img src="ShaiG.jpg">
+<span>Shai <i class="fa-solid fa-circle-check verified"></i></span>
 </div>
 
-<img class="post-img" src="pexels-262756269-36076131.jpg">
+<img class="post-img" src="shai.png">
 
 <div class="post-icons">
 <i class="fa-regular fa-heart"></i>
@@ -94,13 +317,44 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 </div>
 
 <p class="caption">
-<b>Car0L</b> Foto nova 😎
+<b>NBA</b> Shai recorde histórico 🔥
 </p>
 
 </div>
 
+</div>
 
-</main>
+
+
+<script>
+
+const track = document.querySelector(".carousel-track")
+const next = document.querySelector(".next")
+const prev = document.querySelector(".prev")
+const images = document.querySelectorAll(".carousel-track img")
+
+let index = 0
+
+function updateCarousel(){
+const width = images[0].clientWidth
+track.style.transform = `translateX(-${width * index}px)`
+}
+
+next.onclick = () => {
+if(index < images.length - 1){
+index++
+updateCarousel()
+}
+}
+
+prev.onclick = () => {
+if(index > 0){
+index--
+updateCarousel()
+}
+}
+
+</script>
 
 </body>
-</html>            
+</html>
