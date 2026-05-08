@@ -371,6 +371,25 @@
   cursor: pointer;
 }
 
+.edit-button {
+  min-width: auto;
+  padding: 14px 18px;
+  background: rgba(59, 130, 246, 0.12);
+  color: #1e40af;
+  border-color: rgba(59, 130, 246, 0.18);
+}
+
+.edit-button:hover {
+  background: rgba(59, 130, 246, 0.16);
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
 .status-btn:hover {
   background: #eff6ff;
 }

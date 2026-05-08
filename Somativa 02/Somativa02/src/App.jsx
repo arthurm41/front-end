@@ -16,6 +16,7 @@ function App() {
   const [searchTerm, setSearchTerm] = useState('')
   const [statusFilter, setStatusFilter] = useState('Todos')
   const [showStyleModal, setShowStyleModal] = useState(false)
+  const [editEventId, setEditEventId] = useState(null)
   const [formState, setFormState] = useState({
     title: '',
     type: 'Workshop',
@@ -58,17 +59,34 @@ function App() {
     const title = formState.title.trim()
     if (!title) return
 
-    setEventList((previous) => [
-      ...previous,
-      {
-        id: Date.now(),
-        title,
-        type: formState.type,
-        status: 'Agendado',
-        description: formState.description.trim(),
-        vagas: Number(formState.vagas),
-      },
-    ])
+    if (editEventId) {
+      setEventList((previous) =>
+        previous.map((item) =>
+          item.id === editEventId
+            ? {
+                ...item,
+                title,
+                type: formState.type,
+                description: formState.description.trim(),
+                vagas: Number(formState.vagas),
+              }
+            : item,
+        ),
+      )
+      setEditEventId(null)
+    } else {
+      setEventList((previous) => [
+        ...previous,
+        {
+          id: Date.now(),
+          title,
+          type: formState.type,
+          status: 'Agendado',
+          description: formState.description.trim(),
+          vagas: Number(formState.vagas),
+        },
+      ])
+    }
 
     setFormState({
       title: '',
@@ -101,13 +119,38 @@ function App() {
     )
   }
 
+  function handleEditEvent(eventId) {
+    const eventToEdit = eventList.find((item) => item.id === eventId)
+    if (!eventToEdit) return
+
+    setEditEventId(eventId)
+    setFormState({
+      title: eventToEdit.title,
+      type: eventToEdit.type,
+      description: eventToEdit.description || '',
+      vagas: String(eventToEdit.vagas),
+    })
+  }
+
+  function handleCancelEdit() {
+    setEditEventId(null)
+    setFormState({
+      title: '',
+      type: 'Workshop',
+      description: '',
+      vagas: '10',
+    })
+  }
+
   function handleDeleteEvent(eventId) {
     setEventList((previous) => previous.filter((item) => item.id !== eventId))
   }
 
   function handleClearSchedule() {
-    setEventList([])
-    window.localStorage.removeItem(STORAGE_KEY)
+    if (window.confirm('Tem certeza que deseja limpar todo o cronograma?')) {
+      setEventList([])
+      window.localStorage.removeItem(STORAGE_KEY)
+    }
   }
 
   return (
@@ -138,7 +181,7 @@ function App() {
         </div>
 
         <form className="event-form" onSubmit={handleAddEvent}>
-          <h2>Adicionar novo evento</h2>
+          <h2>{editEventId ? 'Editar evento' : 'Adicionar novo evento'}</h2>
 
           <label>
             Título do evento
@@ -182,9 +225,16 @@ function App() {
             />
           </label>
 
-          <button type="submit" className="primary-button">
-            Criar evento
-          </button>
+          <div className="form-actions">
+            <button type="submit" className="primary-button">
+              {editEventId ? 'Salvar alterações' : 'Criar evento'}
+            </button>
+            {editEventId && (
+              <button type="button" className="secondary-button" onClick={handleCancelEdit}>
+                Cancelar
+              </button>
+            )}
+          </div>
         </form>
       </section>
 
@@ -248,6 +298,13 @@ function App() {
                     onClick={() => handleEnroll(event.id)}
                   >
                     {event.vagas > 0 ? 'Inscrever Aluno' : 'Esgotado'}
+                  </button>
+                  <button
+                    type="button"
+                    className="secondary-button edit-button"
+                    onClick={() => handleEditEvent(event.id)}
+                  >
+                    Editar
                   </button>
                   <button
                     type="button"
