@@ -1,0 +1,274 @@
+:root {
+  --bg: #07111f;
+  --panel: #0f1b2b;
+  --panel-strong: #14253d;
+  --text: #f4f7fb;
+  --muted: #8ea0b7;
+  --accent: #4f8cff;
+  --accent-soft: rgba(79, 140, 255, 0.2);
+  --success: #39d98a;
+  --warning: #ffb84d;
+  --danger: #ff6b6b;
+  --danger-soft: rgba(255, 107, 107, 0.16);
+  --border: rgba(255, 255, 255, 0.08);
+  --shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, var(--bg), #13253d);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+button,
+select {
+  font: inherit;
+}
+
+.app-shell {
+  min-height: 100vh;
+  padding: 24px;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 20px;
+}
+
+.topbar,
+.controls,
+.sensor-section,
+.footer {
+  background: rgba(15, 27, 43, 0.9);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  border-radius: 22px;
+}
+
+.topbar {
+  padding: 24px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.brand__logo {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--accent), #7d5cff);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.brand h1,
+.section-title h2,
+.controls h2 {
+  margin: 0;
+}
+
+.brand p {
+  margin: 4px 0 0;
+  color: var(--muted);
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: #a7cdff;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--success);
+  box-shadow: 0 0 0 4px rgba(57, 217, 138, 0.18);
+}
+
+.content {
+  display: grid;
+  gap: 20px;
+}
+
+.controls {
+  padding: 24px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 20px;
+}
+
+.controls__group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+button {
+  border: none;
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--accent), #6f93ff);
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(79, 140, 255, 0.28);
+}
+
+.filter-label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--muted);
+}
+
+select {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--panel-strong);
+  color: var(--text);
+}
+
+.sensor-section {
+  padding: 24px 28px;
+}
+
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+#contador-sensores {
+  color: var(--muted);
+}
+
+.sensor-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.sensor-card {
+  background: linear-gradient(145deg, var(--panel), var(--panel-strong));
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 240px;
+}
+
+.sensor-card.card-alerta {
+  border-color: var(--danger);
+  box-shadow: inset 0 0 0 1px rgba(255, 107, 107, 0.2), 0 10px 24px rgba(255, 107, 107, 0.15);
+  background: linear-gradient(145deg, var(--danger-soft), rgba(15, 27, 43, 0.95));
+}
+
+.sensor-card__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sensor-icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--accent-soft);
+  font-size: 1.2rem;
+}
+
+.sensor-status {
+  font-size: 0.8rem;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(57, 217, 138, 0.16);
+  color: #7fe1ac;
+}
+
+.sensor-card h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.sensor-meta,
+.sensor-value,
+.sensor-type {
+  margin: 0;
+  color: var(--muted);
+}
+
+.sensor-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.sensor-history {
+  margin-top: auto;
+  align-self: flex-start;
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 8px 12px;
+}
+
+.footer {
+  padding: 18px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--muted);
+}
+
+@media (max-width: 768px) {
+  .app-shell {
+    padding: 14px;
+  }
+
+  .topbar,
+  .controls,
+  .sensor-section,
+  .footer {
+    padding: 18px;
+  }
+
+  .topbar,
+  .controls,
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .sensor-grid {
+    grid-template-columns: 1fr;
+  }
+}

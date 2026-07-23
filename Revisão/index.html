@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard de Sensores</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand__logo">S</div>
+          <div>
+            <h1>Dashboard de Sensores</h1>
+            <p>Monitoramento industrial em tempo real</p>
+          </div>
+        </div>
+        <div class="status-pill" aria-label="Status da conexão">
+          <span class="status-dot online"></span>
+          Online
+        </div>
+      </header>
+
+      <main class="content">
+        <section class="controls" aria-labelledby="filtros-titulo">
+          <div class="controls__group">
+            <h2 id="filtros-titulo">Filtros e Controles</h2>
+            <button id="btn-atualizar" type="button">Atualizar dados</button>
+          </div>
+          <label class="filter-label" for="filtro-sensor">
+            Filtrar por tipo
+            <select id="filtro-sensor">
+              <option value="Todos">Todos</option>
+              <option value="Temperatura">Temperatura</option>
+              <option value="Umidade">Umidade</option>
+              <option value="Pressão">Pressão</option>
+            </select>
+          </label>
+        </section>
+
+        <section class="sensor-section" aria-labelledby="grid-titulo">
+          <div class="section-title">
+            <h2 id="grid-titulo">Grid de Sensores</h2>
+            <span id="contador-sensores">0 sensores</span>
+          </div>
+          <div id="sensor-grid" class="sensor-grid"></div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>© 2026 Dashboard de Sensores</p>
+        <p>Última atualização: <span id="ultimo-update">--:--:--</span></p>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
