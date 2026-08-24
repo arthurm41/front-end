@@ -1,0 +1,6 @@
+.site-footer { align-items: center; background: #173c36; color: #f4f1e9; display: flex; justify-content: space-between; padding: 32px max(24px, calc((100% - 1072px) / 2)); }
+.site-footer p { margin: 0; }
+.site-footer__brand { color: #f0a06b; font-family: Georgia, serif; font-size: 1.5rem; }
+.site-footer__note, .site-footer__copy { color: #b7c8bf; font-size: .85rem; margin-top: 6px !important; }
+.site-footer__copy { text-align: right; }
+@media (max-width: 600px) { .site-footer { align-items: flex-start; flex-direction: column; gap: 22px; } .site-footer__copy { text-align: left; } }

@@ -1,0 +1,32 @@
+<section class="carousel" aria-labelledby="carousel-title">
+	<div class="carousel__intro">
+		<p class="eyebrow">Caderno de viagens</p>
+		<h1 id="carousel-title">Lugares para sentir o mundo.</h1>
+		<p class="carousel__summary">Três paisagens, três maneiras de sair da rotina.</p>
+	</div>
+
+	<div class="carousel__window">
+		<div class="carousel__track" [style.transform]="'translateX(-' + activeIndex() * 33.333333 + '%)'">
+			@for (destination of destinations; track destination.title) {
+				<article class="destination-card">
+					<img [src]="destination.image" [alt]="destination.title" />
+					<div class="destination-card__content">
+						<p class="destination-card__location">{{ destination.location }}</p>
+						<h2>{{ destination.title }}</h2>
+						<p>{{ destination.description }}</p>
+					</div>
+				</article>
+			}
+		</div>
+	</div>
+
+	<div class="carousel__controls">
+		<button type="button" class="arrow-button" aria-label="Destino anterior" (click)="previous()">&#8592;</button>
+		<div class="carousel__dots" aria-label="Selecionar destino">
+			@for (destination of destinations; track destination.title; let index = $index) {
+				<button type="button" class="dot" [class.dot--active]="activeIndex() === index" [attr.aria-label]="'Ver ' + destination.title" [attr.aria-current]="activeIndex() === index ? 'true' : null" (click)="select(index)"></button>
+			}
+		</div>
+		<button type="button" class="arrow-button" aria-label="Próximo destino" (click)="next()">&#8594;</button>
+	</div>
+</section>
