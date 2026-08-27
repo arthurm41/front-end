@@ -1,7 +1,8 @@
 import { Component, signal } from '@angular/core';
 
 type Destination = {
-  image: string;
+  color: string;
+  number: string;
   location: string;
   title: string;
   description: string;
@@ -16,19 +17,22 @@ type Destination = {
 export class Carousel {
   protected readonly destinations: Destination[] = [
     {
-      image: 'https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1400&q=85',
+      color: '#d9a441',
+      number: '01',
       location: 'Patagonia, Argentina',
       title: 'Onde o horizonte respira',
       description: 'Trilhas silenciosas, lagos azuis e montanhas que parecem não ter fim.',
     },
     {
-      image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=85',
+      color: '#d4775c',
+      number: '02',
       location: 'Fernando de Noronha, Brasil',
       title: 'Dias em mar aberto',
       description: 'Águas transparentes e uma ilha para desacelerar de verdade.',
     },
     {
-      image: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1400&q=85',
+      color: '#79a89b',
+      number: '03',
       location: 'Dolomitas, Itália',
       title: 'A beleza do inesperado',
       description: 'Uma pausa entre picos dourados, vilarejos e estradas para explorar.',
